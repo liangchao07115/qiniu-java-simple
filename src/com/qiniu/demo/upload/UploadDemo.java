@@ -8,8 +8,6 @@ public class UploadDemo {
 	
 	public String secretKey = "";
 	
-	public Auth auth = Auth.create(accessKey, secretKey);
-	
-	
+	public Auth auth = Auth.create(accessKey, secretKey);	
 
 }
