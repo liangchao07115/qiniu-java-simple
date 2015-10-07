@@ -20,19 +20,17 @@ public class DeleteBucket {
 	@Test
 	public void test2() throws IOException{		
 		
-		String signingStr =  "/drop/showvideo\n";
+		String signingStr =  "/drop/demosource\n";
 		
-		String url = "http://rs.qiniu.com/drop/showvideo";
+		String url = "http://rs.qiniu.com/drop/demosource";
 		
 		String access_token = auth.sign(signingStr);
 		
 		OkHttpClient client = new OkHttpClient();		
 
-		//RequestBody formBody = new FormEncodingBuilder().add("email", "**").add("password", "**").build();
-
 		Request request = new Request.Builder().url(url)
 				.addHeader("Content-Type", "application/x-www-form-urlencoded")
-				.addHeader("Authorization", "QBox " + access_token).build();
+				.addHeader("Authorization", "QBox " +access_token).build();
 
 		Response re = client.newCall(request).execute();
 

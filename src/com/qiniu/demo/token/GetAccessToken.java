@@ -24,4 +24,7 @@ public class GetAccessToken {
 		String accessToken = auth.sign(signingStr);
 		System.out.println(accessToken);
 	}	
+	
+	
+	
 }

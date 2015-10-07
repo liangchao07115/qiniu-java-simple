@@ -20,17 +20,16 @@ public class Mkbucket {
 	@Test
 	public void test2() throws IOException{
 		
-		String path = "/mkbucket2/te/public/0\n";
-		
-		//String signingStr =  path + "";
-		
+		String path = "/mkbucket2/tessssssss/public/0\n";
+		///mkbucket2/<BucketName>/public/<IsPublic>
+		//String signingStr =  path + ""; rs.qiniu.com
+		// application/x-www-form-urlencoded
+		//Authorization  QBox <AccessToken>
 		String access_token = auth.sign(path);
 		
-		String url = "http://rs.qiniu.com/mkbucket2/te/public/0";		
-		
+		String url = "http://rs.qiniu.com/mkbucket2/tessssssss/public/0";				
 		
 		OkHttpClient client = new OkHttpClient();		
-
 
 		Request request = new Request.Builder().url(url)
 				.addHeader("Content-Type", "application/x-www-form-urlencoded")
@@ -39,11 +38,10 @@ public class Mkbucket {
 		Response re = client.newCall(request).execute();
 
 		if (re.isSuccessful() == true) {
-			System.out.println(re.header("error"));
 			System.out.println(re.code());
+			System.out.println(re.toString());
 		} else {
 			System.out.println(re.code());
-			System.out.println(re.header("error"));
 		}		
 	}	
 
