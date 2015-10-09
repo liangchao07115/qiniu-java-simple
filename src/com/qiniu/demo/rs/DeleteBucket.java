@@ -20,9 +20,9 @@ public class DeleteBucket {
 	@Test
 	public void test2() throws IOException{		
 		
-		String signingStr =  "/drop/demosource\n";
+		String signingStr =  "/drop/te01\n";
 		
-		String url = "http://rs.qiniu.com/drop/demosource";
+		String url = "http://rs.qiniu.com/drop/te01";
 		
 		String access_token = auth.sign(signingStr);
 		
