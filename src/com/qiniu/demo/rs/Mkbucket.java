@@ -20,14 +20,13 @@ public class Mkbucket {
 	@Test
 	public void test2() throws IOException{
 		
-		String path = "/mkbucket2/tessssssss/public/0\n";
-		///mkbucket2/<BucketName>/public/<IsPublic>
-		//String signingStr =  path + ""; rs.qiniu.com
-		// application/x-www-form-urlencoded
-		//Authorization  QBox <AccessToken>
+		String path = "/mkbucket2/te011/public/0\n";
+	
 		String access_token = auth.sign(path);
 		
-		String url = "http://rs.qiniu.com/mkbucket2/tessssssss/public/0";				
+		System.out.println(access_token);
+		
+		String url = "http://rs.qiniu.com/mkbucket2/te011/public/0";				
 		
 		OkHttpClient client = new OkHttpClient();		
 
