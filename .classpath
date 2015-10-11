@@ -5,6 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="src/lib/okhttp-2.5.0.jar"/>
 	<classpathentry kind="lib" path="src/lib/okio-1.6.0.jar"/>
-	<classpathentry kind="lib" path="src/lib/qiniu-java-sdk-7.0.3.jar"/>
+	<classpathentry kind="lib" path="src/lib/qiniu-java-sdk-7.0.3.jar" sourcepath="C:/Users/D2015084/Desktop/Temp/tools/qiniu-java-sdk-jars/qiniu-java-sdk-7.0.4.2-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
