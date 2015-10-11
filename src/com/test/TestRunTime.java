@@ -12,11 +12,14 @@ public class TestRunTime {
 	@Test
 	public void test() throws InterruptedException{
 		Runtime runTime = Runtime.getRuntime(); //get Runtime object
-		String[] cmd = new String[2];
-		cmd[0] = "cmd.exe";
-		cmd[1] = "start ping www.baidu.com";
+		String[] cmd = new String[3];
+		cmd[0]="cmd.exe"; 
+		cmd[1]="-c"; 
+		cmd[2]="qshell account"; 
+		
+		String test = "";
 		try {
-			Process p = runTime.exec("ls -l");
+			Process p = runTime.exec("C:/chaoLiang/ProgramFiles/Tools/putty/putty.exe");
 			
 			BufferedInputStream in = new BufferedInputStream(p.getInputStream());  
             BufferedReader inBr = new BufferedReader(new InputStreamReader(in));  
