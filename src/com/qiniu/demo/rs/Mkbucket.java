@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
+import com.qiniu.common.Config;
 import com.qiniu.util.Auth;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -11,13 +12,9 @@ import com.squareup.okhttp.Response;
 
 public class Mkbucket {
 	
-	public String ak = "kq0nTUwXHRkfz5ipg_krWgGFYhMAZCTSf21IdjEu";
+	public Auth auth = Auth.create(Config.ak, Config.sk);	
 	
-	public String sk = "sZHaqTsn72cYaywvwQC9i3KrJpbRQYvt3_GV4L-0";
-	
-	public Auth auth = Auth.create(ak , sk );
-	
-	@Test
+	@Test//使用mkbucket接口，mkbucket接口与qiniudn域名绑定在一起了
 	public void test2() throws IOException{
 		
 		String path = "/mkbucket2/te011/public/0\n";

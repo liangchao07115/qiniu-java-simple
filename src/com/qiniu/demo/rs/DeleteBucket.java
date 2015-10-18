@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
+import com.qiniu.common.Config;
 import com.qiniu.util.Auth;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -11,11 +12,8 @@ import com.squareup.okhttp.Response;
 
 public class DeleteBucket {
 	
-	public String ak = "kq0nTUwXHRkfz5ipg_krWgGFYhMAZCTSf21IdjEu";
 	
-	public String sk = "sZHaqTsn72cYaywvwQC9i3KrJpbRQYvt3_GV4L-0";
-	
-	public Auth auth = Auth.create(ak , sk );
+	public Auth auth = Auth.create(Config.ak, Config.sk);	
 	
 	@Test
 	public void test2() throws IOException{		
@@ -35,12 +33,13 @@ public class DeleteBucket {
 				.addHeader("Content-Type", "application/x-www-form-urlencoded")
 				.addHeader("Authorization", "QBox " +access_token).build();
 
-		//Response re = client.newCall(request).execute();
+		Response re = client.newCall(request).execute();
 
-//		if (re.isSuccessful() == true) {
-//			System.out.println(re.code());
-//		} else {
-//			System.out.println(re.code());
-//		}		
+		if (re.isSuccessful() == true) {
+			System.out.println(re.code());
+		} else {
+			System.out.println(re.code());
+		}		
+		
 	}	
 }
