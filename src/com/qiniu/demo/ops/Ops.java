@@ -12,7 +12,6 @@ public class Ops {
 	
 	public void test(){
 		
-	}
-	
+	}	
 
 }

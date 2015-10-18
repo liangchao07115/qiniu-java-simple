@@ -20,11 +20,14 @@ public class DeleteBucket {
 	@Test
 	public void test2() throws IOException{		
 		
-		String signingStr =  "/drop/te01\n";
+		String signingStr =  "/drop/tes01\n";
 		
-		String url = "http://rs.qiniu.com/drop/te01";
+		String url = "http://rs.qiniu.com/drop/tes01";
 		
 		String access_token = auth.sign(signingStr);
+		
+
+		System.out.println(access_token);
 		
 		OkHttpClient client = new OkHttpClient();		
 
@@ -32,12 +35,12 @@ public class DeleteBucket {
 				.addHeader("Content-Type", "application/x-www-form-urlencoded")
 				.addHeader("Authorization", "QBox " +access_token).build();
 
-		Response re = client.newCall(request).execute();
+		//Response re = client.newCall(request).execute();
 
-		if (re.isSuccessful() == true) {
-			System.out.println(re.code());
-		} else {
-			System.out.println(re.code());
-		}		
+//		if (re.isSuccessful() == true) {
+//			System.out.println(re.code());
+//		} else {
+//			System.out.println(re.code());
+//		}		
 	}	
 }

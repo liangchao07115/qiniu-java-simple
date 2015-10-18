@@ -19,5 +19,4 @@ public class Date2UnixTimestamp {
 		long k = date.getTime();	
 		return k/1000;
 	}
-
 }
