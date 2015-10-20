@@ -5,8 +5,8 @@ import java.io.File;
 import org.junit.Test;
 
 import com.google.gson.JsonObject;
-import com.qiniu.common.Config;
 import com.qiniu.common.QiniuException;
+import com.qiniu.config.Config;
 import com.qiniu.http.Response;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.util.Auth;
