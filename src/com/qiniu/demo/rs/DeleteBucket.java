@@ -10,23 +10,18 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
-public class DeleteBucket {
-	
+public class DeleteBucket {	
 	
 	public Auth auth = Auth.create(Config.ak, Config.sk);	
 	
-	@Test
-	public void test2() throws IOException{		
+	public void test2(String bucketName) throws IOException{		
+			
+		String signingStr =  "/drop/"+bucketName+"\n";
 		
-		String signingStr =  "/drop/tes01\n";
-		
-		String url = "http://rs.qiniu.com/drop/tes01";
+		String url = "http://rs.qiniu.com/drop/"+bucketName;
 		
 		String access_token = auth.sign(signingStr);
-		
-
-		System.out.println(access_token);
-		
+				
 		OkHttpClient client = new OkHttpClient();		
 
 		Request request = new Request.Builder().url(url)
@@ -39,7 +34,10 @@ public class DeleteBucket {
 			System.out.println(re.code());
 		} else {
 			System.out.println(re.code());
-		}		
-		
+		}				
 	}	
+	@Test
+	public void tets() throws IOException{
+		test2("test2");
+	}
 }

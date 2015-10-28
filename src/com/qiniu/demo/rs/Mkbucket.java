@@ -14,16 +14,16 @@ public class Mkbucket {
 	
 	public Auth auth = Auth.create(Config.ak, Config.sk);	
 	
-	@Test//使用mkbucket接口，mkbucket接口与qiniudn域名绑定在一起了
-	public void test2() throws IOException{
+	//使用mkbucket接口，mkbucket接口与qiniudn域名绑定在一起了
+	public void test2(String bucketName) throws IOException{
 		
-		String path = "/mkbucket2/te011/public/0\n";
+		String path = "/mkbucket/"+bucketName+"/public/0\n";
 	
 		String access_token = auth.sign(path);
 		
 		System.out.println(access_token);
 		
-		String url = "http://rs.qiniu.com/mkbucket2/te011/public/0";				
+		String url = "http://rs.qiniu.com/mkbucket/"+bucketName+"/public/0";				
 		
 		OkHttpClient client = new OkHttpClient();		
 
@@ -40,5 +40,14 @@ public class Mkbucket {
 			System.out.println(re.code());
 		}		
 	}	
+	@Test
+	public void test(){
+		try {
+			test2("test2");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }
