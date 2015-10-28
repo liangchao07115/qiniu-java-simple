@@ -16,6 +16,48 @@ public class Ops {
 	
 	public OperationManager Op = new OperationManager(auth);
 	
+	@Test//|odconv/jpg
+	public void test02(){
+		String saveas = UrlSafeBase64.encodeToString("tes01:te");
+		String saveas1 = UrlSafeBase64.encodeToString("tes01:tes003.jpg");
+
+		/*
+		String saveas1 = UrlSafeBase64.encodeToString("tes01:tes001.jpg");
+		
+		//"yifangyun_preview|odconv/jpg/page/2|saveas/"+saveas1
+*
+*/
+		
+		String fops = "yifangyun_preview|odconv/jpg/page/3|saveas/" + saveas1;
+		StringMap params = new StringMap();
+		params.putNotEmpty("pipeline", "ops");
+		
+		try {
+			String persistentId = Op.pfop("tes01", "tomcat5.5.docx", fops, params);
+			System.out.println(persistentId);
+		} catch (QiniuException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		
+	}
+	
+	@Test//|odconv/jpg
+	public void test01(){
+		String saveas = UrlSafeBase64.encodeToString("tes01:te");
+		String saveas1 = UrlSafeBase64.encodeToString("tes01:tes001.jpg");
+		String fops = "yifangyun_preview|odconv/jpg/page/2|saveas/" + saveas1;
+		StringMap params = new StringMap();
+		params.putNotEmpty("pipeline", "ops");
+		
+		try {
+			String persistentId = Op.pfop("nepliang", "5.docx", fops, params);
+			System.out.println(persistentId);
+		} catch (QiniuException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}			
+	}	
 	
 	@Test
 	public void test(){
@@ -31,9 +73,6 @@ public class Ops {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-	}
-	
-	
-	
+	}	
 
 }
