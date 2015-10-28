@@ -22,7 +22,7 @@ public class refresh {
 	public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 	
 	@Test
-	public void test2() throws IOException{			
+	public void test2( ) throws IOException{			
 		String signingStr =  "/refresh\n";		
 		String url = "http://fusion.qiniuapi.com/refresh";		
 		String access_token = auth.sign(signingStr);
@@ -39,9 +39,9 @@ public class refresh {
 		map.put("urls", str);
 		
 		//map转json
-		String s = Json.encode(map);
+		String json = Json.encode(map);
 		
-		RequestBody body = RequestBody.create(JSON,s);
+		RequestBody body = RequestBody.create(JSON,json);
 				
 		Request request = new Request.Builder()
 				.url(url)
