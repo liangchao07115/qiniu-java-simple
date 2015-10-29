@@ -1,9 +1,9 @@
+package com.qiniu.cdn;
+
 import java.io.IOException;
-import java.util.HashMap;
 
 import org.junit.Test;
 
-import com.google.gson.Gson;
 import com.qiniu.config.Config;
 import com.qiniu.util.Auth;
 import com.qiniu.util.Json;
@@ -14,16 +14,15 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
-public class refresh {
-
-
-	public Auth auth = Auth.create(Config.ak, Config.sk);	
+public class prefetch {	
+	public Auth auth = Auth.create(Config.ak, Config.sk);
+	
 	public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 	
 	@Test
 	public void test2() throws IOException{			
-		String signingStr =  "/refresh\n";		
-		String url = "http://fusion.qiniuapi.com/refresh";		
+		String signingStr =  "/prefetch\n";		
+		String url = "http://fusion.qiniuapi.com/prefetch";		
 		String access_token = auth.sign(signingStr);
 
 		System.out.println(access_token);
@@ -52,5 +51,5 @@ public class refresh {
 		Response re = client.newCall(request).execute();
 
 		System.out.println(re.body().string());		
-	}		
+	}	
 }
