@@ -17,17 +17,10 @@ import com.qiniu.util.UrlSafeBase64;
 public class UploadDemo {	
 	public Auth auth = Auth.create(Config.ak, Config.sk);		
 	public UploadManager mp = new UploadManager();
-	
-	/*
-	String saveas = UrlSafeBase64.encodeToString("tes01:te");
-	String saveas1 = UrlSafeBase64.encodeToString("tes01:tes001.jpg");
-	String fops = "yifangyun_preview|odconv/jpg/page/2|saveas/" + saveas1;
-	StringMap params = new StringMap();
-	params.putNotEmpty("pipeline", "ops");*/
-	
+		
 	@Test
 	public void test02(){
-		File file = new File("C:"+File.separator+"charless"+ File.separator+"tomcat5.5.docx");	
+		File file = new File("C:"+File.separator+"charless"+ File.separator+"FkShFyuESJMT4Ur1LJ5Zm-34qC0Y (3)");	
 		
 		String saveas1 = UrlSafeBase64.encodeToString("tes01:tes001.jpg");
 		
@@ -35,10 +28,11 @@ public class UploadDemo {
 		
 		StringMap policy = new StringMap()
 				.put("persistentOps", "yifangyun_preview/docx|odconv/jpg/page/2|saveas/"+saveas1);
+
 				//.put("fsizeMin",98989898);
-		String token = auth.uploadToken("nepliang", "tomcat", 3600, policy,false);
+		String token = auth.uploadToken("public", "wek", 3600, null,false);
 		try {
-			Response res = mp.put(file, "tomcat", token);
+			Response res = mp.put(file, "wek", token,null,"application/x-subrip",false);
 			System.out.println(res.bodyString());
 			System.out.println(res.statusCode);
 		} catch (QiniuException e){
@@ -55,18 +49,20 @@ public class UploadDemo {
 	
 	
 	@Test
-	public void test01(){
+	public void	 test1(){
 		File file = new File("C:"+File.separator+"charless"+ File.separator+"Base64.java");	
-		//"key=$(key)&hash=$(etag)&id=$(reqId)"
+		//"key=$(key)&hash=$(etag)&id=$(reqId)" 
 		StringMap policy = new StringMap()
-				.putNotEmpty("callbackUrl", "https://787cdf9c.ngrok.io/IsValidCallback/servlet/IsValidCallback")
-				.putNotEmpty("callbackBody", "key=$(key)&hash=$(etag)&id=$(reqId)")
-				.putNotEmpty("", "");
-		String token = auth.uploadToken("nepliang", "test12ngork", 3600, policy);
+				.putNotEmpty("callbackUrl", "https://c41e8c97.ngrok.io/IsValidCallback/servlet/IsValidCallback")
+				.putNotEmpty("callbackBody", "key=$(key)&hash=$(etag)")
+				.putNotEmpty("callbackBodyType", "application/json");
+		
+		String token = auth.uploadToken("public", "test12ngor", 3600, policy);
 		try {
-			Response res = mp.put(file, "test12ngork", token);
+			Response res = mp.put(file, "test12ngor", token);
 			System.out.println(res.bodyString());
 			System.out.println(res.statusCode);
+			System.out.println(res.reqId);
 		} catch (QiniuException e){
 			Response tet = e.response;
 			System.out.println(tet.statusCode);
@@ -78,10 +74,21 @@ public class UploadDemo {
 			}
 		}
 	}	
+	
+	@Test
+	public void test3(){
+		String str1 = "QBox N9qIq1ZvEyCMKibp3tKCeuBDmxRFzZ-2RuYfmffi:xU8TgQp6tc6DVlWFzI1632bOcoM=";
+		String str2 = "QBox N9qIq1ZvEyCMKibp3tKCeuBDmxRFzZ-2RuYfmffi:xU8TgQp6tc6DVlWFzI1632bOcoM=";
+		if(str1.equals(str2)){
+			System.out.println("ss");
+		}else{
+			System.out.println("kk");
+		}
+	}
 
 	@Test
 	public void test(){
-		String token = auth.uploadToken("nepliang",null,360000,null);
+		String token = auth.uploadToken("public",null,360000,null);
 		System.out.println(token);
 	}
 	

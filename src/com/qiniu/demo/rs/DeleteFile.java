@@ -6,19 +6,22 @@ import org.junit.Test;
 
 import com.qiniu.config.Config;
 import com.qiniu.util.Auth;
+import com.qiniu.util.UrlSafeBase64;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
-public class DeleteBucket {	
+public class DeleteFile {
 	
-	public Auth auth = Auth.create(Config.ak, Config.sk);	
+	public Auth auth = Auth.create("nlHeJgNUZv66xIOW2kEN4euqOO-hC2tNlIzHm-_0", "WEyGr6lhPEonrJQC029D3Ja9KVp-NhqMnB7W5CP9");	
 	
-	public void test2(String bucketName) throws IOException{		
-			
-		String signingStr =  "/drop/"+bucketName+"\n";
+	public void test2(String fileName) throws IOException{		
 		
-		String url = "http://rs.qiniu.com/drop/"+bucketName;
+		String EncodedEntryURI = UrlSafeBase64.encodeToString(fileName);
+		
+		String signingStr =  "/delete/"+EncodedEntryURI+"\n";
+		
+		String url = "http://rs.qiniu.com/delete/"+EncodedEntryURI;
 		
 		String access_token = auth.sign(signingStr);
 				
@@ -36,8 +39,15 @@ public class DeleteBucket {
 			System.out.println(re.code());
 		}				
 	}	
+	
 	@Test
-	public void tets() throws IOException{
-		test2("dianbo");
+	public void test(){
+		try {
+			test2("test:新建文本文档.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+
 }

@@ -7,6 +7,7 @@ import com.qiniu.common.QiniuException;
 import com.qiniu.config.Config;
 import com.qiniu.processing.OperationManager;
 import com.qiniu.util.Auth;
+import com.qiniu.util.Base64;
 import com.qiniu.util.StringMap;
 import com.qiniu.util.UrlSafeBase64;
 
@@ -15,6 +16,26 @@ public class Ops {
 	public Auth auth = Auth.create(Config.ak, Config.sk);	
 	
 	public OperationManager Op = new OperationManager(auth);
+	
+	@Test
+	public void test1(){
+		
+		String saveName = UrlSafeBase64.encodeToString("public:test0056");
+		String tt = "http://7xo0hi.com1.z0.glb.clouddn.com/wek";
+				
+		String url = UrlSafeBase64.encodeToString(tt);
+		String fop = "avthumb/mp4/subtitle/"+url+"|saveas/" + saveName;
+		StringMap params = new StringMap();
+		params.putNotEmpty("pipeline", "ops");
+		params.putNotEmpty("force", "1");
+
+		try {
+			String persistentId = Op.pfop("public", "testAdd", fop, params);
+			System.out.println(persistentId);
+		} catch (QiniuException e) {
+			e.printStackTrace();
+		}	
+	}
 	
 	@Test//|odconv/jpg
 	public void test02(){
@@ -26,8 +47,7 @@ public class Ops {
 		
 		//"yifangyun_preview|odconv/jpg/page/2|saveas/"+saveas1
 *
-*/
-		
+*/	
 		String fops = "yifangyun_preview|odconv/jpg/page/3|saveas/" + saveas1;
 		StringMap params = new StringMap();
 		params.putNotEmpty("pipeline", "ops");

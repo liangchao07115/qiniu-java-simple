@@ -8,7 +8,7 @@ import com.qiniu.util.Auth;
 
 public class Download{
 	
-	public Auth auth = Auth.create(Config.ak, Config.sk);	
+	public Auth auth = Auth.create("3W8nxz2TkTiHZ0HXFzeezCwR_1Focs1s4eWQPZdR", "a54P_q_3uoeK5TpYip6gfvVdiquYdRburS5GOgT5");	
 	
 	public String privateUrl(String url){
 		String provateUrl = auth.privateDownloadUrl(url);		
@@ -35,7 +35,7 @@ public class Download{
 	
 	@Test
 	public void test(){
-		System.out.println(privateUrl("http://7xngm2.com1.z0.glb.clouddn.com/IsValidCallback.war"));
+		System.out.println(privateUrl("http://videostatic.5tv.com/00361dcc0606a9c2b4b94997498ba98e.mp4"));
 	}
 	
 	@Test
