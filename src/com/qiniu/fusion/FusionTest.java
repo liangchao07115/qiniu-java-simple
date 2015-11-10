@@ -20,7 +20,7 @@ public class FusionTest {
 		String[] str = new String[] { "http://7xo0hi.com1.z0.glb.clouddn.com/ob.png",
 				"http://7xo0hi.com1.z0.glb.clouddn.com/node.js" };
 		map.put("urls", str);
-		// map转json
+	
 		String s = Json.encode(map);
 		fresh.fresh(s);
 	}
@@ -32,7 +32,7 @@ public class FusionTest {
 		
 		String[] str = new String[]{"http://7xo0hi.com1.z0.glb.clouddn.com/ob.png","http://7xo0hi.com1.z0.glb.clouddn.com/node.js"};		
 		map.put("urls", str);		
-		//map转json
+
 		String s = Json.encode(map);
 		pre.pre(s);
 	}	
