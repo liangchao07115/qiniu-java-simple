@@ -18,6 +18,40 @@ public class UploadDemo {
 	public Auth auth = Auth.create(Config.ak, Config.sk);		
 	public UploadManager mp = new UploadManager();
 		
+	
+	@Test
+	public void test4(){
+		
+		File file = new File("C:"+File.separator+"charless"+ File.separator+"test.mp4");	
+		
+		String saveas1 = UrlSafeBase64.encodeToString("public:tes00");
+		
+		//"yifangyun_preview|odconv/jpg/page/2|saveas/"+saveas1
+		
+		StringMap policy = new StringMap()
+				.put("persistentOps", "avthumb/m3u8/t/10|saveas/"+saveas1);
+				//.put("persistentPipeline", "ops");
+
+				//.put("fsizeMin",98989898);
+		String token = auth.uploadToken("dianbo", "wek1", 3600, null,false);
+		try {
+			Response res = mp.put(file, "wek1", token,null,null,false);
+			System.out.println(res.bodyString());
+			System.out.println(res.statusCode);
+			System.out.println(res.reqId);
+		} catch (QiniuException e){
+			Response tet = e.response;
+			System.out.println(tet.statusCode);
+			System.out.println(tet.contentType());
+			try {
+				System.out.println(tet.bodyString());
+			} catch (QiniuException e1) {
+				System.out.println("NO!");
+			}
+		}		
+	}
+	
+	
 	@Test
 	public void test02(){
 		File file = new File("C:"+File.separator+"charless"+ File.separator+"FkShFyuESJMT4Ur1LJ5Zm-34qC0Y (3)");	
@@ -26,13 +60,13 @@ public class UploadDemo {
 		
 		//"yifangyun_preview|odconv/jpg/page/2|saveas/"+saveas1
 		
-		StringMap policy = new StringMap()
-				.put("persistentOps", "yifangyun_preview/docx|odconv/jpg/page/2|saveas/"+saveas1);
+		StringMap policy = new StringMap().put("insertOnly", "1");
+				//.put("persistentOps", "yifangyun_preview/docx|odconv/jpg/page/2|saveas/"+saveas1);
 
 				//.put("fsizeMin",98989898);
-		String token = auth.uploadToken("public", "wek", 3600, null,false);
+		String token = auth.uploadToken("public", "wek3", 3600, null,false);
 		try {
-			Response res = mp.put(file, "wek", token,null,"application/x-subrip",false);
+			Response res = mp.put(file, "wek3", token,null,"application/x-subrip",false);
 			System.out.println(res.bodyString());
 			System.out.println(res.statusCode);
 		} catch (QiniuException e){
@@ -46,8 +80,6 @@ public class UploadDemo {
 			}
 		}
 	}	
-	
-	
 	@Test
 	public void	 test1(){
 		File file = new File("C:"+File.separator+"charless"+ File.separator+"Base64.java");	

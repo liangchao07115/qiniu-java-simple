@@ -12,7 +12,7 @@ import com.squareup.okhttp.Response;
 import com.squareup.okhttp.internal.framed.FrameReader.Handler;
 import com.squareup.okhttp.internal.framed.Header;
 
-public class Demo_01 {
+public class Demo_get {
 	
 	//Synchronous Get
 	public String getSynRequest(String url){
@@ -46,13 +46,18 @@ public class Demo_01 {
 	public String getAsynRequest(String url){
 		OkHttpClient client = new OkHttpClient();
 		
+		System.out.println("CC");
+		
 		Request request = new Request.Builder().url(url).build();
 		
 		client.newCall(request).enqueue(new Callback() {			
 			@Override
 			public void onResponse(Response response) throws IOException {
-				System.out.println("duan!");
+				String res = response.body().toString();
+				System.out.println(res);
+				System.out.println("A!");
 				if(!response.isSuccessful()){
+					System.out.println("B!");
 					throw new IOException("unexpection code" + response);
 				}	
 				System.out.println("duan!");
@@ -73,7 +78,7 @@ public class Demo_01 {
 	
 	@Test
 	public void test1(){
-		String te = getAsynRequest("http://7xo0hi.com1.z0.glb.clouddn.com/node");
+		String te = getAsynRequest("http://publicobject.com/helloworld.txt");
 		System.out.println(te);
 	}
 	

@@ -16,11 +16,8 @@ public class FusionTest {
 	@Test
 	public void refreshTest() throws IOException{
 		StringMap map = new StringMap();
-
-		String[] str = new String[] { "http://7xo0hi.com1.z0.glb.clouddn.com/ob.png",
-				"http://7xo0hi.com1.z0.glb.clouddn.com/node.js" };
-		map.put("urls", str);
-	
+		String[] str = new String[] {"http://7xo0hi.com1.z0.glb.clouddn.com/jianshu.log" };
+		map.put("urls", str);	
 		String s = Json.encode(map);
 		fresh.fresh(s);
 	}

@@ -24,21 +24,16 @@ public class Refresh {
 	public void fresh(String str) throws IOException{			
 		String signingStr =  "/refresh\n";		
 		String url = "http://fusion.qiniuapi.com/refresh";		
-		String access_token = auth.sign(signingStr);
-		
-		OkHttpClient client = new OkHttpClient();			
-		
-		RequestBody body = RequestBody.create(JSON,str);
-				
+		String access_token = auth.sign(signingStr);		
+		OkHttpClient client = new OkHttpClient();		
+		RequestBody body = RequestBody.create(JSON,str);				
 		Request request = new Request.Builder()
 				.url(url)
 				.addHeader("Content-Type", "application/json")
 				.addHeader("Authorization", "QBox " +access_token)
 				.post(body)
-				.build();		
-		
-		Response re = client.newCall(request).execute();
-		
+				.build();				
+		Response re = client.newCall(request).execute();		
 		System.out.println(re.body().string());		
 	}		
 }

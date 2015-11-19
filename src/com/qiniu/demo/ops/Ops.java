@@ -13,7 +13,7 @@ import com.qiniu.util.UrlSafeBase64;
 
 public class Ops {
 
-	public Auth auth = Auth.create(Config.ak, Config.sk);	
+	public Auth auth = Auth.create("3xSESjtoFWFEIEcbHQzqM4vKByMAC4T4xuQujJUi", "ZhdiD2Y3MUrE1eakHCRAKnps54B2zpqxllhEPonI");	
 	
 	public OperationManager Op = new OperationManager(auth);
 	
@@ -82,12 +82,13 @@ public class Ops {
 	@Test
 	public void test(){
 		String saveas = UrlSafeBase64.encodeToString("nepliang:46162409.avi");
-		String fops = "avthumb/mp4|saveas/" + saveas;
+		String fops = "avthumb/m3u8/vb/500k/t/10/noDomain/1";
 		StringMap params = new StringMap();
-		params.putNotEmpty("pipeline", "ops");
+		params.putNotEmpty("pipeline", "ops")
+		.put("force", "1");
 				
 		try {
-			String persistentId = Op.pfop("nepliang", "46162409.avi", fops, params);
+			String persistentId = Op.pfop("ke-zhimq", "9928/1626/1683761248.mp4", fops, null);
 			System.out.println(persistentId);
 		} catch (QiniuException e) {
 			// TODO Auto-generated catch block
