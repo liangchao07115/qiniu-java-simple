@@ -22,7 +22,7 @@ public class UploadDemo {
 	@Test
 	public void test4(){
 		
-		File file = new File("C:"+File.separator+"charless"+ File.separator+"test.mp4");	
+		File file = new File("C:"+File.separator+"charless"+ File.separator+"test.mp3");	
 		
 		String saveas1 = UrlSafeBase64.encodeToString("public:tes00");
 		
@@ -33,9 +33,9 @@ public class UploadDemo {
 				//.put("persistentPipeline", "ops");
 
 				//.put("fsizeMin",98989898);
-		String token = auth.uploadToken("dianbo", "wek1", 3600, null,false);
+		String token = auth.uploadToken("dianbo", "testst", 3600, null,false);
 		try {
-			Response res = mp.put(file, "wek1", token,null,null,false);
+			Response res = mp.put(file, "testst", token,null,null,false);
 			System.out.println(res.bodyString());
 			System.out.println(res.statusCode);
 			System.out.println(res.reqId);
@@ -50,8 +50,7 @@ public class UploadDemo {
 			}
 		}		
 	}
-	
-	
+		
 	@Test
 	public void test02(){
 		File file = new File("C:"+File.separator+"charless"+ File.separator+"FkShFyuESJMT4Ur1LJ5Zm-34qC0Y (3)");	

@@ -46,5 +46,4 @@ public void test2(String bucketName) throws IOException{
 public void tets() throws IOException{
 	test2("dianbo");
 }
-
 }

@@ -16,8 +16,8 @@ public class FusionTest {
 	@Test
 	public void refreshTest() throws IOException{
 		StringMap map = new StringMap();
-		String[] str = new String[] {"http://7xo0hi.com1.z0.glb.clouddn.com/jianshu.log" };
-		map.put("urls", str);	
+		String[] str = new String[] {"http://www.tripb2b.com" };
+		map.put("dirs", str);	
 		String s = Json.encode(map);
 		fresh.fresh(s);
 	}
@@ -27,7 +27,7 @@ public class FusionTest {
 	public void prefetchTest() throws Exception{		
 		StringMap map = new StringMap();
 		
-		String[] str = new String[]{"http://7xo0hi.com1.z0.glb.clouddn.com/ob.png","http://7xo0hi.com1.z0.glb.clouddn.com/node.js"};		
+		String[] str = new String[]{"http://7xnw9e.media1.z0.glb.clouddn.com/video/10-course.mp4"};		
 		map.put("urls", str);		
 
 		String s = Json.encode(map);
@@ -35,8 +35,7 @@ public class FusionTest {
 	}	
 	@Test
 	public void prefetchGetStatusTest(){
-		pre.getStatus("5641d48de3ab3a7f2d000001");
+		pre.getStatus("564f07d3e3ab3a32710000a5");
 	}
-	
 
 }

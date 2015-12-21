@@ -10,10 +10,11 @@ import com.qiniu.util.Auth;
 import com.qiniu.util.Base64;
 import com.qiniu.util.StringMap;
 import com.qiniu.util.UrlSafeBase64;
+import com.squareup.okhttp.Response;
 
 public class Ops {
 
-	public Auth auth = Auth.create("3xSESjtoFWFEIEcbHQzqM4vKByMAC4T4xuQujJUi", "ZhdiD2Y3MUrE1eakHCRAKnps54B2zpqxllhEPonI");	
+	public Auth auth = Auth.create(Config.ak,Config.sk);	
 	
 	public OperationManager Op = new OperationManager(auth);
 	
@@ -81,19 +82,32 @@ public class Ops {
 	
 	@Test
 	public void test(){
-		String saveas = UrlSafeBase64.encodeToString("nepliang:46162409.avi");
-		String fops = "avthumb/m3u8/vb/500k/t/10/noDomain/1";
+		String saveas = UrlSafeBase64.encodeToString("public:java-01");
+		String saveas1 = UrlSafeBase64.encodeToString("public:java-02");
+		String fops = "avthumb/mp4|saveas/"+saveas+";avthumb/flv|saveas/"+saveas1;
+		
 		StringMap params = new StringMap();
 		params.putNotEmpty("pipeline", "ops")
 		.put("force", "1");
 				
 		try {
-			String persistentId = Op.pfop("ke-zhimq", "9928/1626/1683761248.mp4", fops, null);
+			String persistentId = Op.pfop("dianbo", "wek", fops, params);
 			System.out.println(persistentId);
 		} catch (QiniuException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			try {
+				System.out.println(e.response.bodyString());
+			} catch (QiniuException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}		
 	}	
+	
+	@Test
+	public void test09(){
+		String tyt = ";";
+		System.out.println(UrlSafeBase64.encodeToString(tyt));
+	}
 
 }
