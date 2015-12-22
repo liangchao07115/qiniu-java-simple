@@ -9,7 +9,7 @@ import com.qiniu.util.Auth;
 import com.qiniu.util.UrlSafeBase64;
 
 public class ListBucket {
-	public  Auth auth = Auth.create("nlHeJgNUZv66xIOW2kEN4euqOO-hC2tNlIzHm-_0","WEyGr6lhPEonrJQC029D3Ja9KVp-NhqMnB7W5CP9");
+	public  Auth auth = Auth.create("**","**");
 	
 	//空间资源管理
 	public  BucketManager bucketManager = new BucketManager(auth);

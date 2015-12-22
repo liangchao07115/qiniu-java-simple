@@ -8,7 +8,7 @@ import com.qiniu.util.Auth;
 
 public class Download{
 	
-	public Auth auth = Auth.create("3W8nxz2TkTiHZ0HXFzeezCwR_1Focs1s4eWQPZdR", "a54P_q_3uoeK5TpYip6gfvVdiquYdRburS5GOgT5");	
+	public Auth auth = Auth.create("**", "**");	
 	
 	public String privateUrl(String url){
 		String provateUrl = auth.privateDownloadUrl(url);		

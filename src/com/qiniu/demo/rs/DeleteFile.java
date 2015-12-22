@@ -13,7 +13,7 @@ import com.squareup.okhttp.Response;
 
 public class DeleteFile {
 	
-	public Auth auth = Auth.create("nlHeJgNUZv66xIOW2kEN4euqOO-hC2tNlIzHm-_0", "WEyGr6lhPEonrJQC029D3Ja9KVp-NhqMnB7W5CP9");	
+	public Auth auth = Auth.create("****", "****");	
 	
 	public void test2(String fileName) throws IOException{		
 		
@@ -21,7 +21,7 @@ public class DeleteFile {
 		
 		String signingStr =  "/delete/"+EncodedEntryURI+"\n";
 		
-		String url = "http://rs.qiniu.com/delete/"+EncodedEntryURI;
+		String url = "http://rsf.qbox.me/delete/"+EncodedEntryURI;
 		
 		String access_token = auth.sign(signingStr);
 				
@@ -35,7 +35,6 @@ public class DeleteFile {
 
 		if (re.isSuccessful() == true) {
 			System.out.println(re.code());
-			
 		} else {
 			System.out.println(re.code());
 		}				
