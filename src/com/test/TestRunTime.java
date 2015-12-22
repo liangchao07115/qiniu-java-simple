@@ -11,6 +11,7 @@ public class TestRunTime {
 
 	@Test
 	public void test() throws InterruptedException{
+		
 		Runtime runTime = Runtime.getRuntime(); //get Runtime object
 		String[] cmd = new String[3];
 		cmd[0]="cmd.exe"; 

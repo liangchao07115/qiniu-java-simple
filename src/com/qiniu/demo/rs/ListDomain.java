@@ -19,6 +19,7 @@ public  Auth auth = Auth.create(Config.ak,Config.sk);
 	
 
 public void test2(String bucketName) throws IOException{	
+	
 	//http[s]://api.qiniu.com/v6/domain/list?tbl=<TblName>
 		
 	String signingStr =  "/v6/domain/list?tbl="+bucketName+"\n";

@@ -17,6 +17,7 @@ public class Mkbucket {
 	//使用mkbucket接口，mkbucket接口与qiniudn域名绑定在一起了
 	public void test2(String bucketName) throws IOException{
 		
+		
 		String path = "/mkbucket/"+bucketName+"/public/0\n";
 	
 		String access_token = auth.sign(path);

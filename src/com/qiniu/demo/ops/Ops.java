@@ -82,6 +82,7 @@ public class Ops {
 	
 	@Test
 	public void test(){
+		
 		String saveas = UrlSafeBase64.encodeToString("public:java-01");
 		String saveas1 = UrlSafeBase64.encodeToString("public:java-02");
 		String fops = "avthumb/mp4|saveas/"+saveas+";avthumb/flv|saveas/"+saveas1;
@@ -102,6 +103,7 @@ public class Ops {
 				e1.printStackTrace();
 			}
 		}		
+		
 	}	
 	
 	@Test

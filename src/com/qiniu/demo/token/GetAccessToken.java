@@ -18,6 +18,7 @@ public class GetAccessToken {
 	//  获取管理凭证
 	@Test
 	public void test(){
+		
 		String accessToken = auth.sign(signingStr);
 		System.out.println(accessToken);
 	}	

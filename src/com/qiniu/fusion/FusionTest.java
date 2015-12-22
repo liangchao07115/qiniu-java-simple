@@ -15,6 +15,7 @@ public class FusionTest {
 	
 	@Test
 	public void refreshTest() throws IOException{
+		
 		StringMap map = new StringMap();
 		String[] str = new String[] {"http://www.tripb2b.com" };
 		map.put("dirs", str);	

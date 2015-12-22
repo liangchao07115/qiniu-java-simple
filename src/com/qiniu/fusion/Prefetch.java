@@ -21,7 +21,8 @@ public class Prefetch {
 	public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 	
 	@Test
-	public void pre(String str) throws IOException{		
+	public void pre(String str) throws IOException{	
+		
 		String signingStr =  "/prefetch\n";		
 		String url = "http://fusion.qiniuapi.com/prefetch";			
 		String access_token = auth.sign(signingStr);

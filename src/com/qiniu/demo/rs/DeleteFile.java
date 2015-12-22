@@ -35,6 +35,7 @@ public class DeleteFile {
 
 		if (re.isSuccessful() == true) {
 			System.out.println(re.code());
+			
 		} else {
 			System.out.println(re.code());
 		}				

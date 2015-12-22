@@ -22,6 +22,7 @@ public class Demo_get {
 		
 		try {
 			Response response = client.newCall(request).execute();
+			
 			if(!response.isSuccessful()){
 				System.out.println("noOK");
 			}else{

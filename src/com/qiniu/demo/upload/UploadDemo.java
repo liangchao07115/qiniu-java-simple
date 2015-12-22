@@ -35,6 +35,7 @@ public class UploadDemo {
 				//.put("fsizeMin",98989898);
 		String token = auth.uploadToken("dianbo", "testst", 3600, null,false);
 		try {
+			
 			Response res = mp.put(file, "testst", token,null,null,false);
 			System.out.println(res.bodyString());
 			System.out.println(res.statusCode);

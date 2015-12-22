@@ -16,6 +16,7 @@ public class ListBucket {
 	
 	@Test
 	public void test1(){
+		
 		try {
 			bucketManager.delete("test", "新建文本文档.txt");
 		} catch (QiniuException e) {

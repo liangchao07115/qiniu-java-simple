@@ -11,6 +11,7 @@ public class Date2UnixTimestamp {
 		Date date = new Date();
 		try {
 			date = df.parse(dateString);
+			
 		} catch (ParseException e) {
 			
 			// TODO Auto-generated catch block

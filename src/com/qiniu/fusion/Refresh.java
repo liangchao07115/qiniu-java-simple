@@ -21,7 +21,8 @@ public class Refresh {
 	public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 	
 	@Test
-	public void fresh(String str) throws IOException{			
+	public void fresh(String str) throws IOException{	
+		
 		String signingStr =  "/refresh\n";		
 		String url = "http://fusion.qiniuapi.com/refresh";		
 		String access_token = auth.sign(signingStr);		

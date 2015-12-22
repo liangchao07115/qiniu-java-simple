@@ -15,6 +15,7 @@ public class Download{
 		return provateUrl;
 	}
 	
+	
 	/**
 	 * 指定过期时间
 	 * @param date yyyy/MM/dd hh:mm:ss日期格式

@@ -36,6 +36,7 @@ public class DeleteBucket {
 			System.out.println(re.code());
 		}				
 	}	
+	
 	@Test
 	public void tets() throws IOException{
 		test2("dianbo");
